@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas绘图</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+      /**
+       * canvas绘制步骤：（放大后会出现锯齿）
+       * 1.编写 canvas 标签，指定宽高
+       * 2.获取 canvas DOM 节点
+       * 3.获取 canvas 对象
+       * 4.设置绘图属性
+       * 5.调用绘图 API
+       */
+      const canvas = document.getElementById('canvas') // 获取dom节点
+      const ctx = canvas.getContext('2d') // 获取canvas对象
+
+      /* 矩形 */
+      ctx.fillStyle = 'red' // 填充色
+      ctx.fillRect(0, 0, 50, 100) // x轴坐标、y轴坐标、x轴长度、y轴长度
+
+      /* 线段 */
+      ctx.beginPath() // 开始绘制
+      ctx.lineWidth = 3 // 线宽
+      ctx.strokeStyle = 'blue' // 线颜色
+      ctx.moveTo(100, 100) // 起点坐标
+      ctx.lineTo(250, 75) // 第二个点坐标
+      ctx.stroke() // 绘制
+      ctx.lineWidth = 1 // 线宽
+      ctx.lineTo(350, 100) // 第三个点坐标
+      ctx.stroke() // 绘制
+
+      /* 圆形 */
+      ctx.beginPath() // 开始绘制
+      ctx.lineWidth = 2 // 线宽
+      ctx.strokeStyle = 'green' // 圆边线颜色
+      ctx.fillStyle = 'red' // 填充色
+      ctx.arc(200, 200, 50, 0, 2 * Math.PI) // x轴坐标、y轴坐标、半径、起始角度、终止角度
+      ctx.stroke() // 绘制线
+      ctx.fill() // 绘制填充
+
+      /* 点（可理解为1像素的线） */
+      ctx.beginPath() // 开始绘制
+      ctx.lineWidth = 4 // 线宽
+      ctx.strokeStyle = 'red' // 线颜色
+      ctx.moveTo(300, 300) // 起点坐标
+      ctx.lineTo(301, 301) // 第二个点坐标
+      ctx.stroke() // 绘制
+    </script>
+  </body>
+</html>
