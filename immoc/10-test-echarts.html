@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echarts</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+    <style>
+      #chart {
+        width: 600px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script>
+      /**
+       * Echarts绘制步骤：
+       * 1.引入 js 库
+       * 2.编写渲染容器 DOM，添加 width 和 height
+       * 3.获取渲染 DOM 对象
+       * 4.初始化 ECharts 对象
+       * 5.编写 option 参数
+       * 6.调用 setOption 完成渲染
+       */
+
+      const chartDom = document.getElementById('chart')
+      const chart = echarts.init(chartDom, 'dark', { renderer: 'svg' }) // 第二个参数表示主题（可自定义）；第三个参数表示使用svg、canvas等
+      chart.setOption({
+        title: {
+          text: 'Echarts 入门案例'
+        },
+        xAxis: {
+          data: ['食品', '数码', '服饰', '箱包']
+        },
+        yAxis: {},
+        series: {
+          type: 'bar',
+          data: [100, 200, 150, 90]
+        }
+      })
+    </script>
+  </body>
+</html>
