@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>antv-G2绘图</title>
+    <script src="https://unpkg.com/@antv/g2plot@latest/dist/g2plot.js"></script>
+  </head>
+  <body>
+    <div id="g2-chart"></div>
+    <script>
+      /**
+       * G2绘制步骤：（本质上是生成canvas）
+       * 1.引入 js 库
+       * 2.编写渲染容器 DOM
+       * 3.准备渲染数据
+       * 4.获取渲染 DOM 对象
+       * 5.初始化 G2 绘图对象（如：G2Plot.Line），配置绘图参数
+       * 6.调用 render 完成渲染
+       */
+
+      /* 数据集 */
+      const data = [
+        { year: '1991', value: 3 },
+        { year: '1992', value: 4 },
+        { year: '1993', value: 3.5 },
+        { year: '1994', value: 5 },
+        { year: '1995', value: 4.9 },
+        { year: '1996', value: 6 },
+        { year: '1997', value: 7 },
+        { year: '1998', value: 9 },
+        { year: '1999', value: 13 }
+      ]
+      /* 获取dom */
+      const chartDom = document.getElementById('g2-chart')
+      /* 初始化g2对象 */
+      const line = new G2Plot.Line(chartDom, {
+        title: {
+          visible: true,
+          text: 'g2折线图实例'
+        },
+        description: {
+          visible: true,
+          text:
+            '折线图用于表示连续时间跨度内的数据，它通常用于显示某变量随时间的变化模式。'
+        },
+        data: data, // 数据集
+        xField: 'year', // 对应的x轴数据
+        yField: 'value', // 对应的y轴数据
+        // 数据点
+        point: {
+          visible: true,
+          size: 5,
+          color: '#ffffff',
+          style: {
+            stroke: '#fe740c',
+            lineWidth: 2,
+            fillOpacity: 0.6
+          }
+        },
+        // 提示框
+        label: {
+          visible: true
+        },
+        color: '#f2740c',
+        yAxis: {
+          formatter: v => {
+            return `${v}k`
+          }
+        }
+      })
+      /* 渲染 */
+      line.render()
+    </script>
+  </body>
+</html>

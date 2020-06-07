@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>antv-G6绘图</title>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.5.1/dist/g6.min.js"></script>
+  </head>
+  <body>
+    <div id="g6-chart"></div>
+    <script>
+      /**
+       * G6绘制步骤：（本质上是canvas）
+       * 1.引入 js 库
+       * 2.编写渲染容器 DOM
+       * 3.准备渲染数据
+       * 4.获取渲染 DOM 对象
+       * 5.初始化 G6 绘图对象（如：G6.Graph），配置绘图参数
+       * 6.调用 render 完成渲染
+       */
+
+      /* 数据集 */
+      const data = {
+        // 点集
+        nodes: [
+          {
+            id: 'node1', // String，该节点存在则必须，节点的唯一标识
+            x: 100, // Number，可选，节点位置的 x 值
+            y: 200, // Number，可选，节点位置的 y 值
+            label: '起始点', // 节点文本
+            size: 60, // 元素的尺寸
+            // 标签配置属性
+            labelCfg: {
+              position: 'center', // 标签在元素中的位置
+              style: {
+                fontSize: 12, // 标签的文字大小
+                fill: '#ffffff' // 标签的文字颜色
+              }
+            },
+            style: {
+              fill: '#ff0000', // 元素的填充色
+              stroke: '#888888', // 元素的描边色
+              lineWidth: 1 // 节点描边粗细
+            }
+          },
+          {
+            id: 'node2',
+            x: 300,
+            y: 200,
+            label: '目标点1',
+            size: 80
+          },
+          {
+            id: 'node3',
+            x: 500,
+            y: 200,
+            label: '目标点2',
+            size: 100
+          }
+        ],
+        // 边集
+        edges: [
+          {
+            source: 'node1', // String，必须，起始点 id
+            target: 'node2', // String，必须，目标点 id
+            label: '连接线1' // 边的文本
+          },
+          {
+            source: 'node2',
+            target: 'node3',
+            label: '连接线2'
+          }
+        ]
+      }
+      /* 初始化g6对象 */
+      const graph = new G6.Graph({
+        container: 'g6-chart',
+        width: 800, // Number，必须
+        height: 500 // Number，必须
+      })
+      graph.data(data) // 绑定数据源
+      graph.render() // 绘制矢量图
+    </script>
+  </body>
+</html>

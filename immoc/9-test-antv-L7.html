@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>antv-L7绘图</title>
+    <script src="https://unpkg.com/@antv/l7"></script>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="l7-map"></div>
+    <script>
+      /**
+       * L7绘制步骤：（类似PS的图层的概念）
+       * 1.引入 js 库
+       * 2.编写渲染容器 DOM
+       * 3.初始化地图对象 L7.Scene
+       * 4.请求数据
+       * 5.数据清洗
+       * 6.初始化绘图对象（如：L7.PointLayer）
+       * 7.调用 L7.Scene.addLayer 方法绘图
+       */
+
+      /* 初始化地图对象 */
+      const scene = new L7.Scene({
+        id: 'l7-map',
+        map: new L7.GaodeMap({
+          style: 'dark', // 样式URL
+          center: [120.19382669582967, 30.258134],
+          pitch: 0,
+          zoom: 6,
+          token: '2ec9fef69755cd4b1f6b4422467d0265'
+        })
+      })
+
+      scene.on('loaded', () => {
+        /* 获取数据集（全球发电站数据） */
+        fetch(
+          'https://gw.alipayobjects.com/os/basement_prod/337ddbb7-aa3f-4679-ab60-d64359241955.json'
+        )
+          .then(res => res.json())
+          .then(data => {
+            /* 数据清洗（可选） */
+            data.features = data.features.filter(item => {
+              return item.properties.capacity > 800
+            })
+            /* 初始化点图层对象 */
+            const pointLayer = new L7.PointLayer({})
+              .source(data)
+              .shape('circle') // 点的形状
+              .size('capacity', [0, 16]) // 根据数据集的值大小，来改变点的大小
+              // 根据数据集的值大小，来改变点的颜色
+              .color('capacity', [
+                '#34B6B7',
+                '#4AC5AF',
+                '#5FD3A6',
+                '#7BE39E',
+                '#A1EDB8',
+                '#CEF8D6'
+              ])
+              .active(true)
+              .style({
+                opacity: 0.5,
+                strokeWidth: 0
+              })
+            /* 绘制 */
+            scene.addLayer(pointLayer)
+          })
+      })
+    </script>
+  </body>
+</html>
