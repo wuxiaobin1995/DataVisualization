@@ -26,7 +26,7 @@
        */
 
       const chartDom = document.getElementById('chart')
-      const chart = echarts.init(chartDom, 'dark', { renderer: 'svg' }) // 第二个参数表示主题（可自定义）；第三个参数表示使用svg、canvas等
+      const chart = echarts.init(chartDom, 'dark', { renderer: 'canvas' }) // 第二个参数表示主题（可自定义）；第三个参数表示使用svg、canvas等
       chart.setOption({
         title: {
           text: 'Echarts 入门案例'
@@ -35,10 +35,12 @@
           data: ['食品', '数码', '服饰', '箱包']
         },
         yAxis: {},
-        series: {
-          type: 'bar',
-          data: [100, 200, 150, 90]
-        }
+        series: [
+          {
+            type: 'bar',
+            data: [100, 200, 150, 90]
+          }
+        ]
       })
     </script>
   </body>
