@@ -1,16 +1,31 @@
 <template>
   <div class="home">
-    report
+    <top-view />
+    <sales-view />
+    <bottom-view />
+    <map-view />
   </div>
 </template>
 
 <script>
+import TopView from '../components/TopView'
+import SalesView from '../components/SalesView'
+import BottomView from '../components/BottomView'
+import MapView from '../components/MapView'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+
+  components: {
+    TopView,
+    SalesView,
+    BottomView,
+    MapView
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home {
   box-sizing: border-box;
   width: 100%;

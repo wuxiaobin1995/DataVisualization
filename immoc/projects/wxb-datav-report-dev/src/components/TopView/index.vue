@@ -1,15 +1,55 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 11:30:15
- * @LastEditTime: 2020-07-15 11:30:36
- * @Description : TopView
+ * @LastEditTime: 2020-07-15 17:27:58
+ * @Description : TopView-顶部区域
 -->
 <template>
-  <div>TopView</div>
+  <div class="top-view">
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <total-sales />
+        </el-card>
+      </el-col>
+
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <total-order />
+        </el-card>
+      </el-col>
+
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <today-users />
+        </el-card>
+      </el-col>
+
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <total-users />
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
-export default {}
+import TotalSales from '../TotalSales'
+import TotalOrder from '../TotalOrder'
+import TodayUsers from '../TodayUsers'
+import TotalUsers from '../TotalUsers'
+
+export default {
+  name: 'TopView',
+
+  components: {
+    TotalSales,
+    TotalOrder,
+    TodayUsers,
+    TotalUsers
+  }
+}
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>
