@@ -1,19 +1,29 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:43:37
- * @LastEditTime: 2020-07-15 17:26:36
+ * @LastEditTime: 2020-07-15 21:57:12
  * @Description : TotalSales-累计销售额
 -->
 <template>
-  <common-card title="累计销售额" value="¥ 33,566,204">
+  <common-card title="累计销售额" value="¥ 36,706,987">
     <template>
-      <div class="compare"></div>
-    </template>
-    <template v-slot:footer>
-      <div>
-        昨日销售额
-        <span class="money">¥ 30,000,000</span>
+      <div class="compare-wrapper">
+        <div class="compare">
+          <span>日同比</span>
+          <span class="emphasis">22.36%</span>
+          <div class="increase" />
+        </div>
+        <div class="compare">
+          <span>月同比</span>
+          <span class="emphasis">58.22%</span>
+          <div class="decrease" />
+        </div>
       </div>
+    </template>
+
+    <template v-slot:footer>
+      <span>昨日销售额 </span>
+      <span class="emphasis">¥ 30,000,000</span>
     </template>
   </common-card>
 </template>
@@ -29,13 +39,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.compare {
+.compare-wrapper {
   height: 100%;
-  background: yellow;
-}
-.money {
-  margin-left: 5px;
-  color: #333333;
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .compare {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    color: #666666;
+    font-size: 12px;
+  }
 }
 </style>
