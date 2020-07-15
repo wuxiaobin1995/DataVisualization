@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echarts之坐标系</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+    <style>
+      #chart {
+        width: 1000px;
+        height: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chart"></div>
+    <script>
+      const chartDom = document.getElementById('chart')
+      const chart = echarts.init(chartDom)
+      chart.setOption({
+        // x轴
+        xAxis: {
+          type: 'category'
+        },
+        // y轴
+        yAxis: [
+          {
+            min: 0, // 自定义最小值
+            max: 100 // 自定义最大值
+          },
+          {
+            splitLine: {
+              show: false // 把该y轴的横线隐藏
+            }
+          }
+        ],
+        // 数据集
+        dataset: {
+          source: [
+            ['product', '2012', '2013', '2014', '2015'],
+            ['Matcha Latte', 41.1, 30.4, 65.1, 53.3],
+            ['Milk Tea', 86.5, 92.1, 85.7, 83.1]
+          ]
+        },
+        // 图例
+        legend: {},
+        // 提示窗
+        tooltip: {},
+        // 工具栏
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        // 系列
+        series: [
+          {
+            type: 'bar', // 柱状图
+            seriesLayoutBy: 'row', // 以行的方式取数据
+            yAxisIndex: 0 // 指定对应的y轴
+          },
+          {
+            type: 'line', // 折线图
+            seriesLayoutBy: 'row', // 以行的方式取数据
+            yAxisIndex: 1 // 指定对应的y轴
+          }
+        ]
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echarts之多坐标系</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+    <style>
+      #chart {
+        width: 1000px;
+        height: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chart"></div>
+    <script>
+      const chartDom = document.getElementById('chart')
+      const chart = echarts.init(chartDom)
+      chart.setOption({
+        // 数据集
+        dataset: {
+          source: [
+            ['Jan', 40.5, 50.8],
+            ['Feb', 41.1, 30.4],
+            ['Mar', 86.5, 92.1],
+            ['Apr', 54.1, 67.2],
+            ['May', 24.1, 52.2],
+            ['Jun', 76.4, 34.9],
+            ['Jul', 52.1, 40.2],
+            ['Aug', 30.7, 70.8],
+            ['Sep', 25.1, 24.2],
+            ['Oct', 48.5, 98.4],
+            ['Nov', 65.1, 87.2],
+            ['Dec', 75.3, 34.2]
+          ]
+        },
+        // 底板
+        grid: [
+          {
+            top: 40,
+            bottom: '55%'
+          },
+          {
+            top: '55%',
+            bottom: 40
+          }
+        ],
+        // x轴
+        xAxis: [
+          {
+            type: 'category',
+            gridIndex: 0
+          },
+          {
+            type: 'category',
+            gridIndex: 1
+          }
+        ],
+        // y轴
+        yAxis: [
+          { type: 'value', gridIndex: 0 },
+          { type: 'value', gridIndex: 1 }
+        ],
+        // 图例
+        legend: {},
+        // 提示窗
+        tooltip: {},
+        // 工具栏
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        // 系列
+        series: [
+          {
+            type: 'line', // 折线图
+            xAxisIndex: 0, // 指定对应的x轴
+            yAxisIndex: 0 // 指定对应的y轴
+          },
+          {
+            type: 'bar', // 柱状图
+            xAxisIndex: 1, // 指定对应的x轴
+            yAxisIndex: 1 // 指定对应的y轴
+          }
+        ]
+      })
+    </script>
+  </body>
+</html>
