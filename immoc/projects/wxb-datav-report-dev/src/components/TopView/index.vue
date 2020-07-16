@@ -1,8 +1,8 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 11:30:15
- * @LastEditTime: 2020-07-15 21:10:41
- * @Description : TopView-顶部区域
+ * @LastEditTime: 2020-07-16 17:31:46
+ * @Description : TopView-区域一
 -->
 <template>
   <div class="top-view">
@@ -17,7 +17,7 @@
       <!-- 累计订单量 -->
       <el-col :span="6">
         <el-card shadow="hover">
-          <total-order />
+          <total-orders />
         </el-card>
       </el-col>
 
@@ -40,7 +40,7 @@
 
 <script>
 import TotalSales from '../TotalSales'
-import TotalOrder from '../TotalOrder'
+import TotalOrders from '../TotalOrders'
 import TodayUsers from '../TodayUsers'
 import TotalUsers from '../TotalUsers'
 
@@ -49,7 +49,7 @@ export default {
 
   components: {
     TotalSales,
-    TotalOrder,
+    TotalOrders,
     TodayUsers,
     TotalUsers
   }

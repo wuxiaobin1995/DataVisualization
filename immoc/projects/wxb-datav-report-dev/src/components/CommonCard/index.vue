@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:33:27
- * @LastEditTime: 2020-07-15 21:55:22
+ * @LastEditTime: 2020-07-16 09:27:03
  * @Description : CommonCard-通用卡片组件
 -->
 <template>
@@ -24,10 +24,12 @@ export default {
 
   props: {
     title: {
-      type: String
+      type: String,
+      default: '标题为空'
     },
     value: {
-      type: String
+      type: String,
+      default: '0'
     }
   }
 }
@@ -58,12 +60,14 @@ export default {
 </style>
 
 <style lang="scss">
-// 通用样式
+/* CommonCard通用卡片组件的通用样式 */
+// 加粗字体
 .emphasis {
   margin-left: 5px;
   color: #333333;
   font-weight: 700;
 }
+// 向上小三角
 .increase {
   width: 0;
   height: 0;
@@ -72,6 +76,7 @@ export default {
   border-style: solid;
   margin: 0 0 3px 5px;
 }
+// 向下小三角
 .decrease {
   width: 0;
   height: 0;

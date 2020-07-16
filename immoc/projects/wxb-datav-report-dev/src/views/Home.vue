@@ -4,6 +4,33 @@
     <sales-view />
     <bottom-view />
     <map-view />
+    <!-- 暂时占位 -->
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
   </div>
 </template>
 

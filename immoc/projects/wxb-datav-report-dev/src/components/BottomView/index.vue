@@ -1,8 +1,8 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:07:52
- * @LastEditTime: 2020-07-15 16:09:09
- * @Description : BottomView
+ * @LastEditTime: 2020-07-16 17:32:22
+ * @Description : BottomView-区域四
 -->
 <template>
   <div>BottomView</div>
