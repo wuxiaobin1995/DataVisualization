@@ -1,12 +1,13 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:07:52
- * @LastEditTime: 2020-07-16 22:14:56
+ * @LastEditTime: 2020-07-17 09:35:18
  * @Description : SalesView-区域二
 -->
 <template>
   <div class="sales-view">
     <el-card shadow="hover" :body-style="{ padding: '0 0 20px 0' }">
+      <!-- header区域 -->
       <template v-slot:header>
         <div class="menu-wrapper">
           <el-menu
@@ -41,9 +42,10 @@
         </div>
       </template>
 
+      <!-- body区域 -->
       <template>
         <div class="sales-view-chart-wrapper">
-          <v-chart :options="chartOption" />
+          <v-chart :options="chartOptions" />
 
           <div class="sales-view-list">
             <div class="sales-view-title">排行榜</div>
@@ -103,7 +105,7 @@ export default {
           }
         ]
       },
-      chartOption: {
+      chartOptions: {
         title: {
           text: '年度销售业绩数据',
           textStyle: {
@@ -196,8 +198,8 @@ export default {
     onMenuSelect(index) {
       this.activeIndex = index
       if (this.activeIndex === '1') {
-        this.chartOption.title.text = '年度销售业绩数据'
-        this.chartOption.series[0].data = [
+        this.chartOptions.title.text = '年度销售业绩数据'
+        this.chartOptions.series[0].data = [
           410,
           82,
           200,
@@ -221,8 +223,8 @@ export default {
           { no: 7, name: '真功夫', money: '200,993' }
         ]
       } else if (this.activeIndex === '2') {
-        this.chartOption.title.text = '年度用户访问数据'
-        this.chartOption.series[0].data = [
+        this.chartOptions.title.text = '年度用户访问数据'
+        this.chartOptions.series[0].data = [
           320,
           82,
           80,
