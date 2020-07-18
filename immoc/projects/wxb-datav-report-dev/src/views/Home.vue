@@ -1,36 +1,15 @@
+<!--
+ * @Author      : 吴晓斌
+ * @CreateData  : 2020-07-15 11:02:53
+ * @LastEditTime: 2020-07-18 15:08:36
+ * @Description : 首页
+-->
 <template>
   <div class="home">
     <top-view />
     <sales-view />
     <bottom-view />
     <map-view />
-    <!-- 暂时占位 -->
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
-    <div>...</div>
   </div>
 </template>
 
