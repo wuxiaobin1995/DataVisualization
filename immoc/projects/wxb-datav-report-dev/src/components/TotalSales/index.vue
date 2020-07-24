@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:43:37
- * @LastEditTime: 2020-07-15 21:57:12
+ * @LastEditTime: 2020-07-24 14:44:01
  * @Description : TotalSales-累计销售额
 -->
 <template>

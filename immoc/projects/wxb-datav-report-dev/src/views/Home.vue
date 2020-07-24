@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 11:02:53
- * @LastEditTime: 2020-07-19 20:07:13
+ * @LastEditTime: 2020-07-24 15:26:39
  * @Description : 首页
 -->
 <template>
@@ -32,6 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* 首页 */
 .home {
   box-sizing: border-box;
   width: 100%;

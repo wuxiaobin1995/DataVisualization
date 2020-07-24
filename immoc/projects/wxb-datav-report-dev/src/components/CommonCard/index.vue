@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:33:27
- * @LastEditTime: 2020-07-16 09:27:03
+ * @LastEditTime: 2020-07-24 15:25:54
  * @Description : CommonCard-通用卡片组件
 -->
 <template>
@@ -57,17 +57,15 @@ export default {
   font-size: 12px;
   color: #666666;
 }
-</style>
 
-<style lang="scss">
-/* CommonCard通用卡片组件的通用样式 */
-// 加粗字体
+/* 这些样式属于在父组件中定义的class，因为这些是CommonCard的通用样式，就写在CommonCard通用组件中 */
+/* 加粗字体 */
 .emphasis {
   margin-left: 5px;
   color: #333333;
   font-weight: 700;
 }
-// 向上小三角
+/* 向上小三角 */
 .increase {
   width: 0;
   height: 0;
@@ -76,7 +74,7 @@ export default {
   border-style: solid;
   margin: 0 0 3px 5px;
 }
-// 向下小三角
+/* 向下小三角 */
 .decrease {
   width: 0;
   height: 0;

@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:07:52
- * @LastEditTime: 2020-07-17 09:35:18
+ * @LastEditTime: 2020-07-24 15:10:34
  * @Description : SalesView-区域二
 -->
 <template>
@@ -10,6 +10,7 @@
       <!-- header区域 -->
       <template v-slot:header>
         <div class="menu-wrapper">
+          <!-- 菜单栏 -->
           <el-menu
             mode="horizontal"
             :default-active="activeIndex"
@@ -19,7 +20,7 @@
             <el-menu-item index="1">销售额</el-menu-item>
             <el-menu-item index="2">访问量</el-menu-item>
           </el-menu>
-
+          <!-- 剩余右侧 -->
           <div class="menu-right">
             <el-radio-group v-model="radioSelect" size="small">
               <el-radio-button label="今日" />
@@ -45,8 +46,9 @@
       <!-- body区域 -->
       <template>
         <div class="sales-view-chart-wrapper">
+          <!-- 图形 -->
           <v-chart :options="chartOptions" />
-
+          <!-- 列表 -->
           <div class="sales-view-list">
             <div class="sales-view-title">排行榜</div>
             <div class="list-item-wrapper">
@@ -71,8 +73,10 @@ export default {
 
   data() {
     return {
-      activeIndex: '1',
+      activeIndex: '1', // 默认选中菜单项
+      // 单选框
       radioSelect: '今年',
+      // 日期选择器
       date: null,
       pickerOptions: {
         shortcuts: [
@@ -105,6 +109,7 @@ export default {
           }
         ]
       },
+      // 图形
       chartOptions: {
         title: {
           text: '年度销售业绩数据',
@@ -182,6 +187,7 @@ export default {
           }
         ]
       },
+      // 列表
       rankData: [
         { no: 1, name: '肯德基', money: '323,234' },
         { no: 2, name: '麦当劳', money: '299,132' },
@@ -256,9 +262,12 @@ export default {
 <style lang="scss" scoped>
 .sales-view {
   margin-top: 20px;
+
+  /* header区域 */
   .menu-wrapper {
-    position: relative;
     display: flex;
+    position: relative;
+    /* 菜单栏 */
     .sales-view-menu {
       width: 100%;
       padding-left: 20px;
@@ -268,6 +277,7 @@ export default {
         margin: 0 20px;
       }
     }
+    /* 剩余右侧 */
     .menu-right {
       position: absolute;
       top: 0;
@@ -282,19 +292,21 @@ export default {
     }
   }
 
+  /* body区域 */
   .sales-view-chart-wrapper {
     display: flex;
     height: 270px;
+    /* 图形 */
     .echarts {
       flex: 0 0 70%;
       width: 70%;
       height: 100%;
     }
+    /* 列表 */
     .sales-view-list {
       flex: 1;
       width: 100%;
       height: 100%;
-
       overflow: hidden;
       .sales-view-title {
         margin-top: 20px;

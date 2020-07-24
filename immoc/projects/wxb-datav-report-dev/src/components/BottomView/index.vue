@@ -1,7 +1,7 @@
 <!--
  * @Author      : 吴晓斌
  * @CreateData  : 2020-07-15 16:07:52
- * @LastEditTime: 2020-07-17 16:52:41
+ * @LastEditTime: 2020-07-24 15:23:35
  * @Description : BottomView-区域三
 -->
 <template>
@@ -13,10 +13,10 @@
         <template v-slot:header>
           <div class="title-wrapper">关键词搜索</div>
         </template>
-
         <!-- body -->
         <template>
           <div class="chart-wrapper">
+            <!-- 图形 -->
             <div class="chart-inner">
               <div class="chart">
                 <div class="chart-title">搜索用户数</div>
@@ -29,6 +29,7 @@
                 <v-chart :options="searchNumberOption" />
               </div>
             </div>
+            <!-- 表格 -->
             <div class="table-wrapper">
               <el-table :data="tableData">
                 <el-table-column prop="rank" label="排名" width="180" />
@@ -65,7 +66,6 @@
             </div>
           </div>
         </template>
-
         <!-- body -->
         <template>
           <div class="chart-wrapper">
@@ -83,6 +83,7 @@ export default {
 
   data() {
     return {
+      // 图形
       searchUserOption: {
         grid: {
           top: 0,
@@ -145,6 +146,7 @@ export default {
           }
         ]
       },
+      // 表格
       tableData: [
         {
           id: 1,
@@ -173,6 +175,7 @@ export default {
         { id: 4, rank: 4, keyword: '北京', count: 100, users: 90, range: '90%' }
       ],
       radioSelect: '品类',
+      // 饼图
       categoryOptions: {}
     }
   },
@@ -182,10 +185,12 @@ export default {
   },
 
   methods: {
+    /* 分页器触发 */
     onPageChange(page) {
       // console.log(page)
     },
 
+    /* 饼图渲染 */
     renderPieChart() {
       const mockData = [
         {
@@ -321,6 +326,7 @@ export default {
     &:last-child {
       padding: 0 0 0 10px;
     }
+    /* header样式 */
     .title-wrapper {
       display: flex;
       align-items: center;
@@ -337,10 +343,13 @@ export default {
         padding-right: 20px;
       }
     }
+
+    /* body样式 */
     .chart-wrapper {
       display: flex;
       flex-direction: column;
       height: 452px;
+      /* 图形 */
       .chart-inner {
         display: flex;
         padding: 0 10px;
@@ -363,6 +372,7 @@ export default {
           }
         }
       }
+      /* 表格 */
       .table-wrapper {
         flex: 1;
         margin-top: 20px;
